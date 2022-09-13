@@ -8,11 +8,16 @@ export type Product = {
 }
 
 
-export const insertProduct = async (product: Product) => {
+const insertProduct = async (product: Product) => {
 
     await dbQuery('INSERT INTO product (name, price) VALUES( ?,?)', [product.name, product.price]);
 
-    let retorno = await dbQuery(`SELECT seq AS id FROM sqlite_sequence WHERE name = 'product'`)
+    let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'product'`);
 
-    return retorno[0].id as number | undefined;
+    return retorno[0].Id as number | undefined;
 };
+
+export const productModel = {
+    insertProduct
+}
+

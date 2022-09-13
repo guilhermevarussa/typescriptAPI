@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config()
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -11,7 +11,7 @@ const app = express();
 app.get('/', (req: Request, res: Response) => {
 
     res.json({
-        msg: 'OK'
+        msg: 'DATA BASE ON'
     })
 
 })
